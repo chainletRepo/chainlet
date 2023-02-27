@@ -15,6 +15,7 @@ from os.path import isfile, join
 
 from sklearn.metrics import roc_auc_score
 
+# define the custom dataset class
 class ThisDataset(Dataset):
     def __init__(self, root, n_graphs,filepath, addressFile, sampleWhite=sys.maxsize, test=False, transform=None, pre_transform=None):
         """
@@ -70,7 +71,7 @@ class ThisDataset(Dataset):
         )
         return df
     def process(self):
-        #graph files
+        # Graph files
         sys.exit("Files should have already been processed")
         mypath= self.raw_paths[0]
         graph_files = [os.path.join(mypath,f) for (mypath, dirnames, filenames) in os.walk(mypath) for f in filenames]
