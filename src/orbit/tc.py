@@ -18,4 +18,4 @@ for edge in edges:
     
 analyzer = OrbitAnalyzer()
 orbits = analyzer.compute_orbits(G)
-print(orbits)
+print("Number of orbits: ", len(orbits))
