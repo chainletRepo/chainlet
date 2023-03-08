@@ -157,8 +157,8 @@ class BitcoinHeistAnalyzer:
         map = {}
 
         for node in list(graph.nodes()):
-            if node.is_transaction():
-                in_neigh = graph.predecessors(node)
+            if node.is_transaction:
+                in_neigh = list(graph.predecessors(node))
                 if len(in_neigh) == 0:
                     coinbases.add(node)
                 else:

@@ -13,7 +13,7 @@ class OrbitAnalyzer:
         self.pairs = set()
         self.pair_count = 0
 
-    def walk(self, graph: nx.Di_graph, starters: Set) -> Set[Pair]:
+    def walk(self, graph: nx.MultiDiGraph, starters: Set) -> Set[Pair]:
         visited, tobe_visited = set(), starters
         while tobe_visited:
             current_tx = next(iter(tobe_visited))
@@ -35,14 +35,14 @@ class OrbitAnalyzer:
                                 tobe_visited.add(tx_next)
 
             if not pairsof_this_tx:
-                p = (current_tx, current_tx)
+                p = Pair(current_tx, current_tx)
                 pairsof_this_tx.add(p)
 
             self.pairs.update(pairsof_this_tx)
 
         return self.pairs
 
-    def find_induced_graph(self, graph: nx.Di_graph, tx, next_tx) -> nx.Di_graph:
+    def find_induced_graph(self, graph: nx.MultiDiGraph, tx, next_tx) -> nx.MultiDiGraph:
         g2 = nx.DiGraph()
         g2.add_node(tx)
         g2.add_node(next_tx)
@@ -65,7 +65,7 @@ class OrbitAnalyzer:
             
         return g2
 
-    def extract_orbits(self, g3: nx.Graph, p: Pair) -> None:
+    def extract_orbits(self, g3: nx.MultiDiGraph, p: Pair) -> None:
         l, r = p.get_left(), p.get_right()
         first, second, third = set(g3.successors(l)), set(g3.predecessors(r)), set(g3.successors(r))
         common = second.intersection(first)
@@ -160,7 +160,7 @@ class OrbitAnalyzer:
         print("Undefined config for "+f+","+c+","+t)
         return None
 
-    def compute_orbits(self, graph: nx.Multi_di_graph):
+    def compute_orbits(self, graph: nx.MultiDiGraph):
         analyzer = BitcoinHeistAnalyzer()
         starters = analyzer.find_starters2(graph)
         pairs = self.walk(graph, starters)
@@ -169,7 +169,7 @@ class OrbitAnalyzer:
         for p in pairs:
             if p.get_left() == p.get_right():
                 current_tx = p.get_left()
-                adds = graph.successors(current_tx)
+                adds = list(graph.successors(current_tx))
                 s = len(adds)
                 
                 if s > self.CHAINLETDIMENSION:
