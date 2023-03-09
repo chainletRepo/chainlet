@@ -96,7 +96,7 @@ class ArticleOrbit:
         except Exception as e:
             print(e)
 
-    def main(self):
+    def main():
         args = sys.argv
         heist_file = args[1]
         orbit_file = args[2]

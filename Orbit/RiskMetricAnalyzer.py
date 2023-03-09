@@ -12,7 +12,7 @@ class RiskMetricAnalyzer:
     COINMIXING = 2
     SUSPICIOUS = 1
     
-    def __init__(self, graph: nx.MultiDiGraph) -> None:
+    def __init__(self, graph: nx.Multi_di_graph) -> None:
         self.metrics: Dict[Node, Metric] = {}
 
         tx_types = {}
