@@ -33,7 +33,7 @@ In experiments on the full orbit data, we use a one-versus-rest Random Forest cl
 
 ```python
 RandomForestClassifier(
-    n_estimators=100,
+    n_estimators=300,
     criterion='gini',
     max_depth=None,
     min_samples_split=2,
