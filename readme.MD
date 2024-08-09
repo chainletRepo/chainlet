@@ -1,6 +1,6 @@
 
 
-# Chainlet Orbits: Topological Address Embedding for the Bitcoin Blockchain
+# Chainlet Orbits: Topological Address Embedding for Blockchain
 
  To address the computational and interpretability limitations of the existing techniques for large Bitcoin transaction graphs, we define an efficient topological node embedding technique suitable for Bitcoin transaction addresses. Using our novel node embedding techniques, we study e-crime in Bitcoin networks by focusing on special substructures induced by the illicit behavior and show that using our node embedding technique, we can efficiently match the existing illicit activity detection accuracy of the graph neural networks while allowing interpretable and explainable machine learning models.
 
