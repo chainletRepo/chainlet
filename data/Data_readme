@@ -1,0 +1,9 @@
+
+
+All times in the data are represented in UNIX time (UTC: Coordinated Universal Time) since Python and almost all languages can easily convert between UNIX time and human-readable time if you need or want to convert these times.
+
+The '2024_output_matrices.txt' file contains the parsed data from each block from 2024. Each block has its data represented on three lines. 
+- The first line has two numbers: the block height and the block time. 
+- The second line starts with "tx_count_matrix." Then, for each value in the 20x20 transaction matrix that is not 0, its value is listed on this line in the form "[NUM_INPUTS],[NUM_OUTPUTS]: [TRANSACTION_COUNT]." The third line starts with "tx_weight_matrix." Then, for each value in the 20x20 transaction matrix that is not 0, its value is listed on this line in the form "[NUM_INPUTS],[NUM_OUTPUTS]: [SUM_OF_TRANSACTION_WEIGHTS]." For example, 1,5:7 in the tx_count_matrix values means that in the block, there were seven transactions with one input and five outputs.  
+
+The price data I am sending has each line in the file containing the time and the price at that time. The '1d_interval_price_data.txt' file contains the closing price of BTC-USD for each day since 2014. The '1h_interval_price_data.txt' file contains the price of BTC-USD at each hour of the day for the last 2 years. The '1m_interval_price_data.txt' file contains the price of BTC-USD at each minute of the day for the last 95 days, starting around October 14th.
